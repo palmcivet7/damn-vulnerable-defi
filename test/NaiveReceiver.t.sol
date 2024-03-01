@@ -3,7 +3,6 @@
 pragma solidity 0.8.20;
 
 import {Test} from "forge-std/Test.sol";
-import {DamnValuableToken} from "../src/DamnValuableToken.sol";
 import {FlashLoanReceiver} from "../src/naive-receiver/FlashLoanReceiver.sol";
 import {NaiveReceiverLenderPool} from "../src/naive-receiver/NaiveReceiverLenderPool.sol";
 
@@ -37,7 +36,7 @@ contract NaiveReceiver is Test {
         vm.stopPrank();
     }
 
-    function test_setUp() public {
+    function test_drain_receiver() public {
         vm.startPrank(player);
         DrainReceiverContract drain = new DrainReceiverContract(address(pool), address(receiver));
         drain.drain();
