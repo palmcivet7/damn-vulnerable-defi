@@ -8,3 +8,6 @@ cache
 .vscode
 artifacts
 cache
+
+.env
+.original
